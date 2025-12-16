@@ -45,5 +45,26 @@ public class Vehicle{
     public void setUser(User user){
         this.user=user;
     }
-    public String getVehicleN
+    public String getVehicleNumber(){
+        return vehicleNumber;
+    }
+    public void setVehicleNumber(String vehicleNumber){
+        this.vehicleNumber=vehicleNumber;
+    }
+    public Double getCapacityKg(){
+        return capacityKg;
+    }
+
+    public void setCapacityKg(Double capacityKg){
+        if(capacityKg==null || capacityKg<=0){
+            throw new IllegalArgumentException("Capacity must be greater than zero");
+        }
+        this.capacityKg=capacityKg;
+    }
+    public Double getFuelEfficiency(){
+        return fuelEfficiency;
+    }
+    public void setFuelEfficiency(Double fuelEfficiency){
+        this.fuelEfficiency=fuelEfficiency;
+    }
 }
