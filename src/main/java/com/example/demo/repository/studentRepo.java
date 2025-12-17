@@ -6,4 +6,6 @@ import org.example.demo.entity.studentEntity;
 
 public interface studentRepo extends JpaRepository<studentEntity,Long>{
 
+   
+
 }
