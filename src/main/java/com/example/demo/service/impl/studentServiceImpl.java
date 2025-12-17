@@ -17,7 +17,9 @@ public class studentServiceImpl implements studentService{
         return repo.findAll();
      }
 
-     public
+     public studentEntity addStudent(studentEntity student){
+        return repo.save(student);
+     }
 
    
 
