@@ -11,7 +11,9 @@ public class GlobalExceptionHandler{
     public ResponseEntity<?> handleFieldError(MethodArgumentNotValidException ex){
         Map<String,String> error = new HashMap<>();
 
-        ex.getBindingData().getField
+        ex.getBindingResult().getFieldsError().forEach(err -> error.put(ex.getField(),ex.getDefaultMessage()));
+
+        return new ResponseEntity<>(error,HttpStatus.BAD_REQUEST);
     }
 
 }
