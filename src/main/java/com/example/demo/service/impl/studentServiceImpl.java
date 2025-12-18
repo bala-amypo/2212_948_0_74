@@ -1,26 +1,27 @@
 package com.example.demo.service.impl;
 
-import com.example.demo.service.*;
-import com.example.demo.repository.*;
-import com.example.demo.entity;
-import java.util.*;
+import com.example.demo.service.StudentService;
+import com.example.demo.repository.StudentRepository;
+import com.example.demo.entity.StudentEntity;
+
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 @Service
-public class studentServiceImpl implements studentService{
+public class StudentServiceImpl implements StudentService {
 
-     @Autowired
-     studentRepo repo;
+    @Autowired
+    private StudentRepository repo;
 
-     public List<studentEntity>getAll(){
+    @Override
+    public List<StudentEntity> getAll() {
         return repo.findAll();
-     }
+    }
 
-     public studentEntity addStudent(studentEntity student){
+    @Override
+    public StudentEntity addStudent(StudentEntity student) {
         return repo.save(student);
-     }
-
-   
-
+    }
 }
