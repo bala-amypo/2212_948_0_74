@@ -3,7 +3,7 @@ package com.example.demo.service.impl;
 import com.example.demo.entity.StudentEntity;
 import com.example.demo.repository.StudentRepository;
 import com.example.demo.service.StudentService;
-import com.example.demo.exception.*;
+import com.example.demo.exception.StudentNotFoundException;
 
 import java.util.List;
 
@@ -25,19 +25,24 @@ public class StudentServiceImpl implements StudentService {
     public StudentEntity addStudent(StudentEntity student) {
         return repo.save(student);
     }
-    
-public StudentEntity getbyId(Long id){
-        return repo.findById(id).orElseThrow(() -> new StudentNotFoundException("Student ID not Found"));
-    }
-public StudentEntity updateByid( Long id, StudentEntity newstu){
-    StudentEntity existing=getbyId(id);
-    newstu.setId(existing.getId());
-    return repo.save(newstu);
-}
-public void deleteByID(Long id){
-    StudentEntity data=getbyId(id);
-    repo.deleteById(id);
-     return "Deleted successfully !";
-}
 
+    @Override
+    public StudentEntity getbyId(Long id) {
+        return repo.findById(id)
+                .orElseThrow(() -> new StudentNotFoundException("Student ID not Found"));
+    }
+
+    @Override
+    public StudentEntity updateById(Long id, StudentEntity newstu) {
+        StudentEntity existing = getbyId(id);
+        newstu.setId(existing.getId());
+        return repo.save(newstu);
+    }
+
+    @Override
+    public String deleteByID(Long id) {
+        StudentEntity data = getbyId(id);
+        repo.delete(data);
+        return "Deleted successfully !";
+    }
 }
