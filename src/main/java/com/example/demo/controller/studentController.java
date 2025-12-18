@@ -11,7 +11,7 @@ public class studentController{
     studentService service;
 
     @GetMapping("/getAllStudent")
-    public ListstudentEntity>getAll(){
+    public List<studentEntity>getAll(){
         return service.getAll();
     }
 
