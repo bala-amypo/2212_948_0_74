@@ -1,27 +1,27 @@
-package com.example.demo.service.impl;
+package com.example.demo.controller;
 
-import com.example.demo.service.StudentService;
-import com.example.demo.repository.StudentRepository;
 import com.example.demo.entity.StudentEntity;
-
-import java.util.List;
+import com.example.demo.service.StudentService;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.*;
 
-@Service
-public class StudentServiceImpl implements StudentService {
+import jakarta.validation.Valid;
+import java.util.List;
+
+@RestController
+public class StudentController {
 
     @Autowired
-    private StudentRepository repo;
+    private StudentService service;
 
-    @Override
+    @GetMapping("/getAllStudent")
     public List<StudentEntity> getAll() {
-        return repo.findAll();
+        return service.getAll();
     }
 
-    @Override
-    public StudentEntity addStudent(StudentEntity student) {
-        return repo.save(student);
+    @PostMapping("/add")
+    public StudentEntity addStudent(@Valid @RequestBody StudentEntity student) {
+        return service.addStudent(student);
     }
 }
