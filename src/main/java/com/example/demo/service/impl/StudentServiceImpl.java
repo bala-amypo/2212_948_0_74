@@ -31,8 +31,8 @@ public StudentEntity getbyId(Long id){
     }
 public StudentEntity updateByid( Long id, StudentEntity newstu){
     StudentEntity existing=getbyId(id);
-    newstu
-    repo.save(newstu);
+    newstu.setId(existing.getId());
+    return repo.save(newstu);
 }
 
 }

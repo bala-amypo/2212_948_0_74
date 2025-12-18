@@ -35,4 +35,6 @@ public class StudentController {
     public StudentEntity updateByid(@PathVariable Long id,@Valid @RequestBody StudentEntity newstu){
         return service.updateById(id,newstu);
     }
+
+    @DeleteMapping
 }
