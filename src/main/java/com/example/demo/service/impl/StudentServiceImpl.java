@@ -34,5 +34,6 @@ public StudentEntity updateByid( Long id, StudentEntity newstu){
     newstu.setId(existing.getId());
     return repo.save(newstu);
 }
+public 
 
 }
