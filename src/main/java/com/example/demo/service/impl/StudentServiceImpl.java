@@ -26,8 +26,8 @@ public class StudentServiceImpl implements StudentService {
         return repo.save(student);
     }
     
-    public StudentEntity getbyId(Long id){
-        return repo.findById(id).orElseThrow(()-> new StudentNotoundException(errMsg:"student ID not found"));
+public studentEntity getbyId(Long id){
+        return repo.findById(id).orElseThrow(() -> new StudentNotFoundException("Student ID not Found"));
     }
 
 }
