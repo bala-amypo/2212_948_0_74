@@ -4,7 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.*;
 import org.example.demo.entity.studentEntity;
 
-public interface studentRepo extends JpaRepository<studentEntity,Long>{
+public interface studentRepo extends JpaRepository<StudentEntity,Long>{
 
    
 
