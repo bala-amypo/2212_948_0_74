@@ -7,4 +7,6 @@ public interface StudentService {
 
     List<StudentEntity> getAll();
     StudentEntity addStudent(StudentEntity student);
-}
+
+    StudentEntity getbyI(Long id);
+    }
