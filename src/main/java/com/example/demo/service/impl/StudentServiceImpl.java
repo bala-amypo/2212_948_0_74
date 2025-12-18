@@ -3,6 +3,7 @@ package com.example.demo.service.impl;
 import com.example.demo.entity.StudentEntity;
 import com.example.demo.repository.StudentRepository;
 import com.example.demo.service.StudentService;
+import com.example.demo.exception.*;
 
 import java.util.List;
 
@@ -26,7 +27,7 @@ public class StudentServiceImpl implements StudentService {
     }
     
     public StudentEntity getbyId(Long id){
-        return repo.indById(id).orElseThrow(()->new StudentNotoundException("tudent ID not found")
+        return repo.findById(id).orElseThrow(()-> new StudentNotoundException(errMsg:"student ID not found"));
     }
 
 }
