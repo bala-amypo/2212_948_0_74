@@ -10,6 +10,7 @@ import jakarta.validation.Valid;
 import java.util.List;
 
 @RestController
+@RequestMapping("/student")
 public class StudentController {
 
     @Autowired
@@ -24,5 +25,9 @@ public class StudentController {
     public StudentEntity addStudent(@Valid @RequestBody StudentEntity student) {
         return service.addStudent(student);
     }
-    @GetMapping("/get/{})
+    @GetMapping("/get/{id}")
+    public StudentEntity getbyId(@PathVariable Long id){
+         return service.getbyId(id);
+
+    }
 }
